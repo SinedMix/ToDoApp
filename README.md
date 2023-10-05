@@ -1,4 +1,4 @@
-#### ToDoApp
+## ToDoApp
 ToDoApp - это приложение для управления задачами (ToDo list), разработанное с использованием PySide6 и базы данных SQLite.
 
 ![image](https://github.com/SinedMix/ToDoApp/assets/142744975/b8007650-7e61-44e4-93e8-81aef1b2ff87)
