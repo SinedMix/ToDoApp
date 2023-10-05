@@ -45,11 +45,6 @@ class Data:
         sql_query = "DELETE FROM tasks WHERE ID=?"
         self.execute_query_with_params(sql_query, [id])
 
-    # def get_tasks_from_db(self):
-    #     cursor = conn.cursor()
-    #     sql_query = "SELECT * FROM tasks"
-    #     tasks = cursor.fetchall()
-
     def export_data_to_excel(self):
         sql_query = 'SELECT * FROM tasks'
         query = self.execute_query_with_params(sql_query)
@@ -71,19 +66,3 @@ class Data:
             print("No rows returned for task ID:", task_id)  # Отладочный вывод
 
         return task_data
-
-    def get_total(self, column, filter=None, value=None):
-        sql_query = f"SELECT COUNT({column}) FROM tasks"
-        if filter is not None and value is not None:
-            sql_query += f'WHERE {filter} = ?'
-
-            query_values = []
-            if value is not None:
-                query_values.append(value)
-
-            query = self.execute_query_with_params(sql_query, query_values)
-
-            if query.next():
-                return str(query.value(0))
-
-            return '0'
